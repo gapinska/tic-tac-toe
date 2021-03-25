@@ -8,6 +8,7 @@ import GameEnd from "../GameFlow/GameEnd"
 import GameOver from "../GameFlow/GameOver"
 import GameBar from "./GameBar"
 import VerdictModal from "./VerdictModal"
+import PlayerButton from "./PlayerButton"
 
 const Board = () => {
   const [startGame, setStartGame] = useState(false)
@@ -88,8 +89,8 @@ const Board = () => {
         <div>
           <GameStart />
           <div className="btn-section">
-            <button onClick={() => handleClickGamerPicked(X)}>{X}</button>
-            <button onClick={() => handleClickGamerPicked(O)}>{O}</button>
+            <PlayerButton onClick={() => handleClickGamerPicked(X)} value={X} />
+            <PlayerButton onClick={() => handleClickGamerPicked(O)} value={O} />
           </div>
         </div>
       )) ||

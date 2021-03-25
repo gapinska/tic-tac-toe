@@ -26,12 +26,30 @@
   margin-top: 25%;
 }
 
-.field {
-  height: 40px;
+.field,
+.player-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 33px;
+}
+
+.field {
+  height: 40px;
+}
+
+.player-btn {
+  height: 60px;
+  width: 60px;
+  margin: 0 5px;
+}
+
+.game-info {
+  margin-top: 20%;
+
+  .game-info-title {
+    margin: 10% 0;
+  }
 }
 
 .score-board-item {
@@ -41,6 +59,11 @@
 .game-flow-btn-section {
   display: flex;
   margin-top: 20px;
+  justify-content: center;
+}
+
+.btn-section {
+  display: flex;
   justify-content: center;
 }
 
