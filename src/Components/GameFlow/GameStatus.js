@@ -1,7 +1,6 @@
 import React from "react"
 
 const GameStatus = ({ gamerTurn, verdict }) => {
-  console.log(verdict)
   return (
     <div className="game-status">
       {!verdict ? (

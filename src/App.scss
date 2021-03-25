@@ -6,9 +6,14 @@ $verdictColor: #0c66d3;
   font-family: "Roboto", sans-serif;
 }
 
+.MuiAppBar-root.MuiAppBar-colorPrimary,
+.field,
+.player-btn {
+  align-items: center;
+}
+
 .MuiAppBar-root.MuiAppBar-colorPrimary {
   flex-direction: row;
-  align-items: center;
   justify-content: space-around;
 }
 
@@ -16,22 +21,30 @@ $verdictColor: #0c66d3;
   padding: 20px 0;
 }
 
-.app-bar {
+.app-bar,
+.field,
+.player-btn,
+.game-flow-btn-section,
+.btn-section {
   display: flex;
+}
+
+.board,
+.field,
+.player-btn,
+.btn-section,
+.game-flow-btn-section {
+  justify-content: center;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(3, 100px);
-  justify-content: center;
   margin-top: 91px;
 }
 
 .field,
 .player-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 33px;
 }
 
@@ -43,6 +56,11 @@ $verdictColor: #0c66d3;
   height: 60px;
   width: 60px;
   margin: 0 5px;
+  cursor: pointer;
+}
+
+.field,
+.player-btn {
   cursor: pointer;
 }
 
@@ -59,14 +77,7 @@ $verdictColor: #0c66d3;
 }
 
 .game-flow-btn-section {
-  display: flex;
   margin-top: 20px;
-  justify-content: center;
-}
-
-.btn-section {
-  display: flex;
-  justify-content: center;
 }
 
 .MuiButtonBase-root.game-flow-btn {
@@ -74,35 +85,31 @@ $verdictColor: #0c66d3;
 }
 
 .game-status {
-  margin-top: 30px;
   position: absolute;
   z-index: 1;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px auto 0;
   left: 0;
   right: 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
 
-  span {
-    font-weight: bold;
-  }
+.game-status span,
+.game-over-info,
+.game-over-verdict span {
+  font-weight: bold;
 }
 
 .game-over-info {
-  font-weight: bold;
   font-size: 30px;
 }
 
-.game-over-verdict {
+.game-over-verdict,
+.game-over-congrat {
   font-size: 20px;
-  span {
-    font-weight: bold;
-  }
 }
 
 .game-over-congrat {
-  font-size: 20px;
   color: $verdictColor;
   font-style: italic;
 }

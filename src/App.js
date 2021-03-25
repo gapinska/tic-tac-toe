@@ -1,12 +1,12 @@
-import './App.scss'
-import Board from './Components/Board/Board'
+import "./App.scss"
+import Board from "./Components/Board/Board"
 
 function App() {
-	return (
-		<div className="App">
-			<Board />
-		</div>
-	)
+  return (
+    <div className="App">
+      <Board />
+    </div>
+  )
 }
 
 export default App
