@@ -1,5 +1,5 @@
 import React from "react"
-import { calculateFinalVerdict } from "../../gameLogic"
+import { calculateFinalVerdict, TIE } from "../../gameLogic"
 
 const GameOver = ({ gamer1Score, gamer2Score }) => {
   const finalVerdict = calculateFinalVerdict(gamer1Score, gamer2Score)
@@ -9,7 +9,9 @@ const GameOver = ({ gamer1Score, gamer2Score }) => {
       <div className="game-info-title game-over-verdict">
         The winner: <span>{finalVerdict}</span>
       </div>
-      <div className="game-info-title game-over-congrat">Congratulations!</div>
+      <div className="game-info-title game-over-congrat">
+        {finalVerdict !== TIE ? "Congratulations!" : "Try next time!"}
+      </div>
     </div>
   )
 }
