@@ -5,6 +5,20 @@
 	font-family: "Roboto", sans-serif;
 }
 
+.MuiAppBar-root.MuiAppBar-colorPrimary {
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.score-board {
+	padding: 20px 0;
+}
+
+.app-bar {
+	display: flex;
+}
+
 .board {
 	display: grid;
 	grid-template-columns: repeat(3, 100px);
@@ -12,4 +26,14 @@
 
 .field {
 	height: 40px;
+}
+
+.score-board-item {
+	padding: 5px;
+}
+
+.game-flow-btn-section {
+	display: flex;
+	margin-top: 20px;
+	justify-content: center;
 }

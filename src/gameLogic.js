@@ -12,6 +12,7 @@ const WINNER_LINES = [
 	[ 0, 4, 8 ],
 	[ 2, 4, 6 ]
 ]
+
 Object.freeze(WINNER_LINES)
 WINNER_LINES.forEach((WINNER_LINE) => Object.freeze(WINNER_LINE))
 

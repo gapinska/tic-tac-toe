@@ -10,4 +10,4 @@ const GameScore = ({ gamer1Score, gamer2Score }) => {
 	)
 }
 
-export default GameScore
+export default React.memo(GameScore)

@@ -3,11 +3,15 @@ import Field from './Field'
 import GameStart from '../GameFlow/GameStart'
 import { calculateVerdict, X, O, TIE } from '../../gameLogic'
 import GameStatus from '../GameFlow/GameStatus'
-import GameScore from '../GameFlow/GameScore'
+import GameContinue from '../GameFlow/GameContinue'
+import GameEnd from '../GameFlow/GameEnd'
+import GameOver from '../GameFlow/GameOver'
+import GameBar from './GameBar'
 
 const Board = () => {
 	const [ startGame, setStartGame ] = useState(false)
-	const [ gamer1TurnFirst, setGamer1TurnFirst ] = useState(true)
+	const [ gamer1Started, setgamer1Started ] = useState(true)
+	const [ continueGameActive, setContinueGameActive ] = useState(false)
 	const [ endGame, setEndGame ] = useState(false)
 	const [ boardFields, setBoardFields ] = useState(Array(9).fill(null))
 	const [ gamer1Turn, setGamer1Turn ] = useState(true)
@@ -22,45 +26,55 @@ const Board = () => {
 				case X:
 					setGamer1Score((prevGamer1Score) => prevGamer1Score + 1)
 					setVerdict(verdict)
+					setContinueGameActive(true)
 					break
 				case O:
 					setGamer2Score((prevGamer1Score) => prevGamer1Score + 1)
 					setVerdict(verdict)
+					setContinueGameActive(true)
 					break
 				case TIE:
 					setVerdict(TIE)
+					setContinueGameActive(true)
 					break
+				default:
+					return
 			}
 		},
 		[ boardFields ]
 	)
 
-	useEffect(
-		() => {
-			setGamer1Turn(!gamer1TurnFirst)
-		},
-		[ verdict ]
-	)
-
 	const handleClickField = (index) => {
-		if (boardFields[index] === null) {
-			const newFields = [ ...boardFields ]
-			newFields[index] = gamer1Turn ? X : O
-			setBoardFields(newFields)
-			setGamer1Turn(!gamer1Turn)
-		}
-
-		if (verdict) {
-			setGamer1Turn(!gamer1TurnFirst)
+		if (!verdict) {
+			if (boardFields[index] === null) {
+				const newFields = [ ...boardFields ]
+				newFields[index] = gamer1Turn ? X : O
+				setBoardFields(newFields)
+				setGamer1Turn(!gamer1Turn)
+			}
 		}
 	}
 
 	const handleClickGamerPicked = (gamer) => {
 		if (gamer !== X) {
-			setGamer1Turn(!gamer1Turn)
-			setGamer1TurnFirst(false)
+			setGamer1Turn(false)
+			setgamer1Started(false)
 		}
 		setStartGame(true)
+	}
+
+	const handleClickContinueGame = () => {
+		if (continueGameActive) {
+			setGamer1Turn(!gamer1Started)
+			setgamer1Started(!gamer1Started)
+			setBoardFields(Array(9).fill(null))
+			setVerdict(null)
+			setContinueGameActive(false)
+		}
+	}
+
+	const handleClickEndGame = () => {
+		setEndGame(true)
 	}
 
 	const gamerTurn = gamer1Turn ? X : O
@@ -76,19 +90,30 @@ const Board = () => {
 					</div>
 				</div>
 			)) ||
-				(startGame && (
-					<div>
-						<GameStatus gamerTurn={gamerTurn} />
-						<GameScore gamer1Score={gamer1Score} gamer2Score={gamer2Score} />
-						<div className="game-board">
-							<div className="board">
-								{boardFields.map((boardField, index) => (
-									<Field key={index} value={boardField} onClick={() => handleClickField(index)} />
-								))}
-							</div>
+			(startGame &&
+			!endGame && (
+				<div>
+					<GameBar gamer1Score={gamer1Score} gamer2Score={gamer2Score} />
+					<GameStatus gamerTurn={gamerTurn} />
+					{/* <GameScore gamer1Score={gamer1Score} gamer2Score={gamer2Score} /> */}
+					<div className="game-flow-btn-section">
+						<GameContinue
+							status={verdict ? true : false}
+							className="game-flow-btn"
+							handleClickContinueGame={handleClickContinueGame}
+						/>
+						<GameEnd className="game-flow-btn" handleClickEndGame={handleClickEndGame} />
+					</div>
+
+					<div className="game-board">
+						<div className="board">
+							{boardFields.map((boardField, index) => (
+								<Field key={index} value={boardField} onClick={() => handleClickField(index)} />
+							))}
 						</div>
 					</div>
-				))}
+				</div>
+			)) || <GameOver gamer1Score={gamer1Score} gamer2Score={gamer2Score} />}
 		</div>
 	)
 }

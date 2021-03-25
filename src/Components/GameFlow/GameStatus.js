@@ -8,4 +8,4 @@ const GameStatus = ({ gamerTurn }) => {
 	)
 }
 
-export default GameStatus
+export default React.memo(GameStatus)
