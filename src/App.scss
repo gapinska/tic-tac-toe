@@ -22,10 +22,16 @@
 .board {
 	display: grid;
 	grid-template-columns: repeat(3, 100px);
+	justify-content: center;
+	margin-top: 10%;
 }
 
 .field {
 	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 33px;
 }
 
 .score-board-item {
@@ -36,4 +42,16 @@
 	display: flex;
 	margin-top: 20px;
 	justify-content: center;
+}
+
+.MuiButtonBase-root.game-flow-btn {
+	margin: 5px;
+}
+
+.game-status {
+	margin-top: 10%;
+
+	span {
+		font-weight: bold;
+	}
 }

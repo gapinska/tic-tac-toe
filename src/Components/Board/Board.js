@@ -7,6 +7,8 @@ import GameContinue from '../GameFlow/GameContinue'
 import GameEnd from '../GameFlow/GameEnd'
 import GameOver from '../GameFlow/GameOver'
 import GameBar from './GameBar'
+import Modal from 'react-modal'
+import Zoom from 'react-reveal/Zoom'
 
 const Board = () => {
 	const [ startGame, setStartGame ] = useState(false)
@@ -94,16 +96,14 @@ const Board = () => {
 			!endGame && (
 				<div>
 					<GameBar gamer1Score={gamer1Score} gamer2Score={gamer2Score} />
-					<GameStatus gamerTurn={gamerTurn} />
-					{/* <GameScore gamer1Score={gamer1Score} gamer2Score={gamer2Score} /> */}
 					<div className="game-flow-btn-section">
 						<GameContinue
 							status={verdict ? true : false}
-							className="game-flow-btn"
 							handleClickContinueGame={handleClickContinueGame}
 						/>
-						<GameEnd className="game-flow-btn" handleClickEndGame={handleClickEndGame} />
+						<GameEnd handleClickEndGame={handleClickEndGame} />
 					</div>
+					<GameStatus gamerTurn={gamerTurn} />
 
 					<div className="game-board">
 						<div className="board">
@@ -112,6 +112,7 @@ const Board = () => {
 							))}
 						</div>
 					</div>
+					<Modal isOpen={true} />
 				</div>
 			)) || <GameOver gamer1Score={gamer1Score} gamer2Score={gamer2Score} />}
 		</div>

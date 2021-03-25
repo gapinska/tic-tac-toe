@@ -1,9 +1,25 @@
 import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import Paper from '@material-ui/core/Paper'
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		'& > *': {
+			margin: theme.spacing(0.2),
+			width: theme.spacing(12),
+			height: theme.spacing(12)
+		}
+	}
+}))
+
 const Field = (props) => {
+	const classes = useStyles()
 	return (
-		<button className="field" onClick={props.onClick}>
-			{props.value}
-		</button>
+		<div className={classes.root}>
+			<Paper elevation={3} className="field" onClick={props.onClick}>
+				{props.value}
+			</Paper>
+		</div>
 	)
 }
 

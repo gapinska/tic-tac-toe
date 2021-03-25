@@ -5,7 +5,13 @@ const GameContinue = ({ handleClickContinueGame, status }) => {
 	const disabled = !status
 
 	return (
-		<Button disabled={disabled} variant="outlined" color="primary" onClick={handleClickContinueGame}>
+		<Button
+			className="game-flow-btn"
+			disabled={disabled}
+			variant="outlined"
+			color="primary"
+			onClick={handleClickContinueGame}
+		>
 			Next round
 		</Button>
 	)
