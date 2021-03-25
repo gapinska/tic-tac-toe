@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+$verdictColor: #0c66d3;
 
 .App {
   text-align: center;
@@ -85,4 +86,27 @@
   span {
     font-weight: bold;
   }
+}
+
+.game-over-info {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.game-over-verdict {
+  font-size: 20px;
+  span {
+    font-weight: bold;
+  }
+}
+
+.game-over-congrat {
+  font-size: 20px;
+  color: $verdictColor;
+  font-style: italic;
+}
+
+.game-over-verdict span,
+.game-over-congrat {
+  color: $verdictColor;
 }

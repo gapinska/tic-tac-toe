@@ -9,6 +9,7 @@ import GameOver from "../GameFlow/GameOver"
 import GameBar from "./GameBar"
 import VerdictModal from "./VerdictModal"
 import PlayerButton from "./PlayerButton"
+import GameRestart from "../GameFlow/GameRestart"
 
 const Board = () => {
   const [startGame, setStartGame] = useState(false)
@@ -77,6 +78,15 @@ const Board = () => {
     }
   }
 
+  const handleClickRestartGame = () => {
+    setStartGame(false)
+    setBoardFields(Array(9).fill(null))
+    setGamer1Score(0)
+    setGamer2Score(0)
+    setVerdict(null)
+    setModalIsOpen(false)
+  }
+
   const handleClickEndGame = () => {
     setEndGame(true)
   }
@@ -102,6 +112,7 @@ const Board = () => {
                 status={verdict ? true : false}
                 handleClickContinueGame={handleClickContinueGame}
               />
+              <GameRestart handleClickRestartGame={handleClickRestartGame} />
               <GameEnd handleClickEndGame={handleClickEndGame} />
             </div>
             <GameStatus gamerTurn={gamerTurn} verdict={verdict} />
