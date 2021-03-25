@@ -1,57 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 .App {
-	text-align: center;
-	font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
 }
 
 .MuiAppBar-root.MuiAppBar-colorPrimary {
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .score-board {
-	padding: 20px 0;
+  padding: 20px 0;
 }
 
 .app-bar {
-	display: flex;
+  display: flex;
 }
 
 .board {
-	display: grid;
-	grid-template-columns: repeat(3, 100px);
-	justify-content: center;
-	margin-top: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: center;
+  margin-top: 10%;
 }
 
 .field {
-	height: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 33px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 33px;
 }
 
 .score-board-item {
-	padding: 5px;
+  padding: 5px;
 }
 
 .game-flow-btn-section {
-	display: flex;
-	margin-top: 20px;
-	justify-content: center;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
 }
 
 .MuiButtonBase-root.game-flow-btn {
-	margin: 5px;
+  margin: 5px;
 }
 
 .game-status {
-	margin-top: 10%;
+  margin-top: 10%;
 
-	span {
-		font-weight: bold;
-	}
+  span {
+    font-weight: bold;
+  }
 }
