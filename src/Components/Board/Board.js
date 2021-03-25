@@ -103,8 +103,7 @@ const Board = () => {
               />
               <GameEnd handleClickEndGame={handleClickEndGame} />
             </div>
-            <GameStatus gamerTurn={gamerTurn} />
-
+            <GameStatus gamerTurn={gamerTurn} verdict={verdict} />
             <div className="game-board">
               <div className="board">
                 {boardFields.map((boardField, index) => (
