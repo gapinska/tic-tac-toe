@@ -14,7 +14,7 @@ In the project directory, you should install npm:
 
 ### `npm i`
 
-than you can run:
+then you can run:
 
 ### `npm start`
 
